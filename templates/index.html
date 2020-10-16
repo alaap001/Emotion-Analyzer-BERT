@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Emotion Analyzer</title>
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+	<p>Hello bitches</p>-
+	<br>
+	<div id="Emotion_text">
+		<form action="{{url_for('predict')}}"method='post'>
+			<input id="text_input", name='text_input', type='text',placeholder="I'm feeling good today", required="required"/>
+			<button type="Submit">Get Emotion</button>
+		</form>
+	</div>
+	<div>
+		{{prediction_text}}
+	</div>
+	<div id="PlotDiv">
+		<script type="text/javascript">
+			var div_figure = {{figure | safe}};
+			for(var i in div_figure){
+				Plotly.plot("PlotDiv",div_figure[i].data)
+			}
+		</script>
+	</div>
+
+	<footer>
+    <!-- start of new content -->
+    <section>
+        <h3 class="visuallyhidden">Social Links</h3>
+        <a class="social-link" href="https://twitter.com/udacity">
+            <img src="img/social-twitter.png" alt="Twitter">
+        </a>
+        <a class="social-link" href="https://www.instagram.com/udacity/">
+            <img src="img/social-instagram.png" alt="Instagram">
+        </a>
+        <a class="social-link" href="https://plus.google.com/+Udacity">
+            <img src="img/social-google.png" alt="Google Plus">
+        </a>
+    </section>
+    <!-- end of new content -->
+	</footer>
+
+</body>
+</html>
