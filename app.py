@@ -57,6 +57,8 @@ def prepare_text(review_text):
 	
 	return (input_ids,attention_mask)
 
+model = load_model('BERT_ft_7.pt')
+
 @app.route('/predict',methods=['POST'])
 def predict():
 	'''
@@ -64,7 +66,7 @@ def predict():
 	'''
 	
 	review_text = [str(x) for x in request.form.values()][0]
-	model = load_model('BERT_ft_7.pt')
+	
 
 	input_ids,attention_mask = prepare_text(review_text)
 
